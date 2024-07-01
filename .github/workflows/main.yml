@@ -37,6 +37,8 @@ jobs:
           git commit -m "$(echo ${{ steps.commit-message.outputs.message }})"
       
       - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
+        uses: ad-m/github-push-action@master
         with:
+          force: true
+          directory: "."
           github_token: ${{ secrets.GH_TOKEN }}
