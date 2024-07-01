@@ -2,7 +2,7 @@ name: Auto Commit
 
 on:
   schedule:
-    - cron: "0 0,6,12,18 * * *" # Run at 00:00, 06:00, 12:00, 18:00, and 24:00 UTC
+    - cron: "0 0,6,12,18 * * *" # Run at 00:00, 06:00, 12:00, and 18:00 UTC
   workflow_dispatch: # Allows manual triggering of the workflow
   
   push:
@@ -42,3 +42,4 @@ jobs:
           force: true
           directory: "."
           github_token: ${{ secrets.GH_TOKEN }}
+          branch: main  # Specify the branch explicitly
