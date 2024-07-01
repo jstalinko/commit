@@ -4,7 +4,10 @@ on:
   schedule:
     - cron: "0 0,6,12,18 * * *" # Run at 00:00, 06:00, 12:00, 18:00, and 24:00 UTC
   workflow_dispatch: # Allows manual triggering of the workflow
-
+  
+  push:
+    branches:
+      - main
 jobs:
   auto-commit:
     runs-on: ubuntu-latest
@@ -34,6 +37,6 @@ jobs:
           git commit -m "$(echo ${{ steps.commit-message.outputs.message }})"
       
       - name: Push changes
-        uses: ad-m/github-push-action@main
+        uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GH_TOKEN }}
